@@ -3,4 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue">#0671EF</color>
+    <color name="proteines_color">#3D8E40</color>
+    <color name="glucide_color">#9583B5</color>
+    <color name="fat_color">#D5548C</color>
+    <color name="fiber_color">#EDD015</color>
+    <color name="dark_blue">#07366E</color>
 </resources>

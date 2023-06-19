@@ -68,46 +68,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:gravity="center"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="30dp">
-                <TextView
-                    android:paddingTop="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/proteines"
-                    android:layout_marginRight="5dp"
-                    android:color="#FFFF"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ProgressBar
-                        android:id="@+id/proteinesBar"
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:scaleY="3"
-                        android:progress="50"
-                        android:progressTint ="#FF0000"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        >
-                    </ProgressBar>
-                    <TextView
-                        android:id="@+id/proteinesText"
-                        android:paddingTop="0dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="10sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="100 g "
-                        android:color="#FFFF"/>
-                </LinearLayout>
-e            </LinearLayout>
+            <include
+                layout="@layout/progress_bar_componant"
+                android:id="@+id/nom_du_composant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
 
@@ -135,7 +102,7 @@ e            </LinearLayout>
                         android:layout_height="match_parent"
                         android:scaleY="3"
                         android:progress="70"
-                        android:progressTint ="#FF0000"
+                        android:progressTint ="@color/fat_color"
                         style="?android:attr/progressBarStyleHorizontal"
                         >
                     </ProgressBar>
@@ -179,7 +146,7 @@ e            </LinearLayout>
                         android:layout_height="match_parent"
                         android:scaleY="3"
                         android:progress="50"
-                        android:progressTint ="#FF0000"
+                        android:progressTint ="@color/glucide_color"
                         style="?android:attr/progressBarStyleHorizontal"
                         >
                     </ProgressBar>
@@ -222,7 +189,7 @@ e            </LinearLayout>
                         android:scaleY="3"
                         android:progress="30"
 
-                        android:progressTint ="#FF0000"
+                        android:progressTint ="@color/fiber_color"
                         style="?android:attr/progressBarStyleHorizontal"
                         >
                     </ProgressBar>
@@ -258,7 +225,7 @@ e            </LinearLayout>
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/quantit"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:inputType="number"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"/>
