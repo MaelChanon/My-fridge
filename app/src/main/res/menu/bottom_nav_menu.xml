@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Scanner"
+        android:icon="@drawable/scanner_icon"
+        android:id="@+id/scanner"/>
+    <item android:title="My fridge"
+        android:icon="@drawable/fridge"
+        android:id="@+id/my_fridge"/>
+    <item android:title="My Food"
+        android:icon="@drawable/baseline_access_time_24"
+        android:id="@+id/my_food"/>
+</menu>
