@@ -68,175 +68,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:gravity="center"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
+
+
+            <com.example.myapplication.components.ProgressBar
+                android:id="@+id/prots"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="30dp">
-                <TextView
-                    android:paddingTop="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/proteines"
-                    android:layout_marginRight="5dp"
-                    android:color="#FFFF"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ProgressBar
-                        android:id="@+id/proteinesBar"
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:scaleY="3"
-                        android:progress="50"
-                        android:progressTint ="#FF0000"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        >
-                    </ProgressBar>
-                    <TextView
-                        android:id="@+id/proteinesText"
-                        android:paddingTop="0dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="10sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="100 g "
-                        android:color="#FFFF"/>
-                </LinearLayout>
-e            </LinearLayout>
+                app:text_progress_bar="@string/proteines"
+                app:progress_bar_color="@color/proteines_color"/>
 
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.example.myapplication.components.ProgressBar
+                android:id="@+id/fat"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="30dp">
-                <TextView
-                    android:paddingTop="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/graisses"
-                    android:layout_marginRight="5dp"
-                    android:color="#FFFF"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ProgressBar
-                        android:id="@+id/fatBar"
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:scaleY="3"
-                        android:progress="70"
-                        android:progressTint ="#FF0000"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        >
-                    </ProgressBar>
-                    <TextView
-                        android:id="@+id/fatText"
-                        android:paddingTop="0dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="10sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="100 g "
-                        android:color="#FFFF"/>
-                </LinearLayout>
-            </LinearLayout>
+                app:text_progress_bar="@string/graisses"
+                app:progress_bar_color="@color/fat_color"/>
 
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.example.myapplication.components.ProgressBar
+                android:id="@+id/sugar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="30dp">
-                <TextView
-                    android:paddingTop="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/glucides"
-                    android:layout_marginRight="5dp"
-                    android:color="#FFFF"/>
-                <LinearLayout
+                app:text_progress_bar="@string/glucides"
+                app:progress_bar_color="@color/glucide_color"/>
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ProgressBar
-                        android:id="@+id/glucidesBar"
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:scaleY="3"
-                        android:progress="50"
-                        android:progressTint ="#FF0000"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        >
-                    </ProgressBar>
-                    <TextView
-                        android:id="@+id/glucidesText"
-                        android:paddingTop="0dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="10sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="100 g "
-                        android:color="#FFFF"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.example.myapplication.components.ProgressBar
+                android:id="@+id/fiber"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center">
+                app:text_progress_bar="@string/Fibres"
+                app:progress_bar_color="@color/fiber_color"/>
 
-                <TextView
-                    android:paddingTop="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fibres     "
-                    android:layout_marginRight="5dp"
-                    android:color="#FFFF"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start">
-                    <ProgressBar
-                        android:id="@+id/FiberBar"
 
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:scaleY="3"
-                        android:progress="30"
 
-                        android:progressTint ="#FF0000"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        >
-                    </ProgressBar>
-                    <TextView
-                        android:id="@+id/FiberText"
-                        android:paddingTop="0dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="10sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="100 g "
-                        android:color="#FFFF"/>
-                </LinearLayout>
-            </LinearLayout>
+
+
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -258,7 +126,7 @@ e            </LinearLayout>
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/quantit"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:inputType="number"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"/>
