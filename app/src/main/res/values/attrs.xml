@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomComponent">
+        <attr name="text_progress_bar" format="string" />
+        <attr name="progress_bar_color" format="color" />
+    </declare-styleable>
+</resources>

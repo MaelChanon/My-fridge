@@ -50,16 +50,6 @@ public class Aliment extends AppCompatActivity {
         loadData();
     }
 
-    private void setProgressBar(JSONObject nutriments, String key, ProgressBar progressBar, TextView textView) throws JSONException {
-        if (!nutriments.has(key)) {
-            progressBar.setProgress(0);
-            textView.setText("0 g");
-            return;
-        }
-        double value = nutriments.getDouble(key);
-        progressBar.setProgress((int) value);
-        textView.setText(value + " g");
-    }
 
     private void loadData() {
         ImageView alimentImage = findViewById(R.id.imageAliment);
@@ -78,31 +68,20 @@ public class Aliment extends AppCompatActivity {
                     this.jsonObject.getJSONObject("product").getString("quantity") : "unknow";
             ((TextView) findViewById(R.id.poid))
                     .setText(quantity);
-            double proteines, fat, sugar, fiber;
             JSONObject nutriments = jsonObject.getJSONObject("product").getJSONObject("nutriments");
-            setProgressBar(
-                    nutriments,
-                    "proteins_100g",
-                    findViewById(R.id.proteinesBar),
-                    findViewById(R.id.proteinesText));
 
-            setProgressBar(
-                    nutriments,
-                    "fat_100g",
-                    findViewById(R.id.fatBar),
-                    findViewById(R.id.fatText));
 
-            setProgressBar(
-                    nutriments,
-                    "sugars_100g",
-                    findViewById(R.id.glucidesBar),
-                    findViewById(R.id.glucidesText));
+            double value = nutriments.has("proteins_100g") ? nutriments.getDouble("proteins_100g") : 0;
+            setProgressBar(findViewById(R.id.prots),value);
 
-            setProgressBar(
-                    nutriments,
-                    "fiber_100g",
-                    findViewById(R.id.FiberBar),
-                    findViewById(R.id.FiberText));
+            value = nutriments.has("fat_100g") ? nutriments.getDouble("fat_100g") : 0;
+            setProgressBar(findViewById(R.id.fat),value);
+
+            value = nutriments.has("sugars_100g") ? nutriments.getDouble("sugars_100g") : 0;
+            setProgressBar(findViewById(R.id.sugar),value);
+
+            value = nutriments.has("fiber_100g") ? nutriments.getDouble("fiber_100g") : 0;
+            setProgressBar(findViewById(R.id.fiber),value);
 
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -184,6 +163,11 @@ public class Aliment extends AppCompatActivity {
             }
         });
     }
+
+    private void setProgressBar(com.example.myapplication.components.ProgressBar progressBar, double value) {
+        progressBar.setProgress(value);
+    }
+
     @Override
     public void onBackPressed(){
         Intent intent = new Intent(getApplicationContext(),QrCodeScanner.class);
