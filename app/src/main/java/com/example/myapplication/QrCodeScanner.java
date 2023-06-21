@@ -22,8 +22,7 @@ import com.example.myapplication.fragments.Fridge_fragment;
 import com.example.myapplication.fragments.Home_fragment;
 
 import com.example.myapplication.utils.CallBackActivity;
-import com.example.myapplication.utils.FoodApiCallback;
-import com.example.myapplication.utils.HTTPRequest;
+
 import com.example.myapplication.utils.foodApiCall;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;

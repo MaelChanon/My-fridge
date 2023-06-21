@@ -72,28 +72,28 @@
             android:orientation="vertical">
 
 
-            <com.example.myapplication.components.ProgressBar
+            <com.example.myapplication.components.ProgressBarComponant
                 android:id="@+id/prots"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:text_progress_bar="@string/proteines"
                 app:progress_bar_color="@color/proteines_color"/>
 
-            <com.example.myapplication.components.ProgressBar
+            <com.example.myapplication.components.ProgressBarComponant
                 android:id="@+id/fat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:text_progress_bar="@string/graisses"
                 app:progress_bar_color="@color/fat_color"/>
 
-            <com.example.myapplication.components.ProgressBar
+            <com.example.myapplication.components.ProgressBarComponant
                 android:id="@+id/sugar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:text_progress_bar="@string/glucides"
                 app:progress_bar_color="@color/glucide_color"/>
 
-            <com.example.myapplication.components.ProgressBar
+            <com.example.myapplication.components.ProgressBarComponant
                 android:id="@+id/fiber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

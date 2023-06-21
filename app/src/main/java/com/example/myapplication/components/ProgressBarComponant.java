@@ -14,36 +14,36 @@ import androidx.annotation.Nullable;
 
 import com.example.myapplication.R;
 
-public class ProgressBar extends LinearLayout {
+public class ProgressBarComponant extends LinearLayout {
     private TextView progress_bar_name;
     private LinearLayout progress_bar_container;
     private android.widget.ProgressBar progress_bar;
     private TextView progress_bar_text;
-    public ProgressBar(@NonNull Context context) {
+    public ProgressBarComponant(@NonNull Context context) {
         super(context);
         init(context,null);
     }
-    public ProgressBar(Context context, AttributeSet attrs) {
+    public ProgressBarComponant(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public ProgressBar(Context context, TextView progress_bar_name) {
+    public ProgressBarComponant(Context context, TextView progress_bar_name) {
         super(context);
         this.progress_bar_name = progress_bar_name;
     }
 
-    public ProgressBar(Context context, @Nullable AttributeSet attrs, TextView progress_bar_name) {
+    public ProgressBarComponant(Context context, @Nullable AttributeSet attrs, TextView progress_bar_name) {
         super(context, attrs);
         this.progress_bar_name = progress_bar_name;
     }
 
-    public ProgressBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr, TextView progress_bar_name) {
+    public ProgressBarComponant(Context context, @Nullable AttributeSet attrs, int defStyleAttr, TextView progress_bar_name) {
         super(context, attrs, defStyleAttr);
         this.progress_bar_name = progress_bar_name;
     }
 
-    public ProgressBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes, TextView progress_bar_name) {
+    public ProgressBarComponant(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes, TextView progress_bar_name) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.progress_bar_name = progress_bar_name;
     }

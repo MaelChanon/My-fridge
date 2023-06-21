@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="drawable.fragments.Home_fragment">
+    tools:context="com.example.myapplication.fragments.Home_fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <View
@@ -23,6 +23,7 @@
             android:gravity="center_horizontal">
 
             <EditText
+                android:fontFamily="@font/times_new_roman_bold"
                 android:id="@+id/editTextNumberDecimal"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -36,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 app:backgroundTint="@color/dark_blue"
+                android:fontFamily="@font/times_new_roman_bold"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="56dp"
                 android:background="@drawable/my_button"
@@ -79,6 +81,7 @@
                 app:backgroundTint="@color/dark_blue"
                 android:paddingBottom="15dp"
                 android:text="@string/scanner_un_code_barre"
+                android:fontFamily="@font/times_new_roman_bold"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="17sp"

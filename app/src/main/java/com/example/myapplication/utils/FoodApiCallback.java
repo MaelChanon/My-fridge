@@ -19,7 +19,8 @@ public class FoodApiCallback implements Callback {
 
     @Override
     public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-        if(response.isSuccessful())
+        if(response.isSuccessful()){
             this.task.CallBack(response.body().string());
+        }
     }
 }

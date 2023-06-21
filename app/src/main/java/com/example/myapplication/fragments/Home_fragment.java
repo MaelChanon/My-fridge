@@ -111,7 +111,6 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
     @Override
     public void CallBack(String object) {
         Handler mainHandler = new Handler(Looper.getMainLooper());
-        Log.d("dsqzdzada", "CallBack: "+object);
         if(!object.contains("\"status\":1")){
             mainHandler.post(new Runnable() {
                 @Override

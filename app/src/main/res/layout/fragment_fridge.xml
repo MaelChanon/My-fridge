@@ -1,76 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="drawable.fragments.fridgeFragment">
+    android:background="@color/normal_background"
+    tools:context="com.example.myapplication.fragments.Fridge_fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center">
-        <TextView
-            android:paddingTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="15sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Proteines"
-            android:layout_marginRight="5dp"
-            android:color="#FFFF"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="650dp"
+                    android:fillViewport="true"
+                    android:scrollbars="vertical"
+
+                    android:gravity="top">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:orientation="vertical">
+                                <LinearLayout
+                                    android:paddingTop="20dp"
+                                    android:paddingBottom="20dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:src="@drawable/fridge2"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/times_new_roman_bold"
+                                            android:textSize="30sp"
+                                            android:text="@string/mon_frigo"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:id="@+id/alimentList"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                </LinearLayout>
+                        </LinearLayout>
+                </ScrollView>
+        </LinearLayout>
+
+
         <ProgressBar
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:scaleY="2"
-            android:progress="50"
-            android:progressTint ="#FF0000"
-            style="?android:attr/progressBarStyleHorizontal"
-            >
-        </ProgressBar>
-        <TextView
-            android:paddingTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="10sp"
+            android:id="@+id/loadingProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100 g "
-            android:color="#FFFF"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center">
-        <TextView
-            android:paddingTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="15sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Proteines"
-            android:layout_marginRight="5dp"
-            android:color="#FFFF"/>
-        <ProgressBar
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:scaleY="2"
-            android:progress="50"
-            android:progressTint ="#FF0000"
-            style="?android:attr/progressBarStyleHorizontal"
-            >
-        </ProgressBar>
-        <TextView
-            android:paddingTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="10sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100 g "
-            android:color="#FFFF"/>
-    </LinearLayout>
-
-
-</FrameLayout>
+            android:layout_centerInParent="true"
+            style="?android:attr/progressBarStyleLarge" />
+</RelativeLayout>

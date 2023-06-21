@@ -17,6 +17,7 @@ public class foodApiCall extends AsyncTask<String,Void, Void>  {
         new HTTPRequest().makeGetRequest(String.format(url, qrCodeData), new FoodApiCallback(activity));
         return null;
     }
+
     @Override
     protected void onPostExecute(Void result) {
 

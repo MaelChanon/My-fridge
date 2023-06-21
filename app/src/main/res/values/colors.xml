@@ -8,4 +8,6 @@
     <color name="fat_color">#D5548C</color>
     <color name="fiber_color">#EDD015</color>
     <color name="dark_blue">#07366E</color>
+    <color name="gray">#F8F8FB</color>
+    <color name="normal_background">#E5E5E5</color>
 </resources>
