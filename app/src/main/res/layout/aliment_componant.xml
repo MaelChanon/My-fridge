@@ -23,8 +23,9 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:scaleType="fitCenter"
+
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/test" />
+                android:src="@drawable/food_logo" />
         </androidx.cardview.widget.CardView>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -34,7 +35,7 @@
             <TextView
                 android:id="@+id/aliment_name"
                 android:text="nom de l'aliment"
-                android:textSize="15sp"
+                android:textSize="11sp"
                 android:fontFamily="@font/times_new_roman_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,23 +43,29 @@
             <TextView
                 android:id="@+id/aliment_days"
                 android:text="Nombre de jours restants"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/times_new_roman_bold"
                 android:textColor="@color/light_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>
-        <TextView
-            android:id="@+id/quantite_restante"
-            android:gravity="center"
-            android:fontFamily="@font/times_new_roman_bold"
-            android:textSize="15sp"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="6 exemplaires"/>
-    </LinearLayout>
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/quantite_restante"
+                android:gravity="center"
+                android:fontFamily="@font/times_new_roman_bold"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_height="match_parent"
+                android:paddingRight="10dp"
+                android:text="6 exemplaires"/>
+        </RelativeLayout>
 
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>

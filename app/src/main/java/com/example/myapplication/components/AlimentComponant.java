@@ -49,8 +49,7 @@ public class AlimentComponant extends CardView implements Comparable<AlimentComp
     private void init(Context context, AttributeSet attrs,String image_url, String name, GregorianCalendar datePeremption,int remaining){
         init(context,attrs);
         long days = (datePeremption.getTimeInMillis() - new GregorianCalendar().getTimeInMillis()) / (24 * 60 * 60 * 1000);
-        String test = new Date(new GregorianCalendar().getTimeInMillis()).toString();
-        String test2 =  new Date(datePeremption.getTimeInMillis()).toString();
+
         Handler mainHandler = new Handler(Looper.getMainLooper());
         mainHandler.post(new Runnable() {
             @Override

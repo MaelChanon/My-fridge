@@ -1,157 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-    <!-- TODO: Update blank fragment layout -->
-
-    <ImageView
-        android:elevation="5dp"
-        android:id="@+id/imageAliment"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintHeight_percent="0.35"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/food_logo" />
-    />
-    <LinearLayout
-        android:background="@drawable/round_border"
-        android:radius="100dp"
-        android:elevation="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:id="@+id/product_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:textSize="25dp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/poid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center" />
-        </LinearLayout>
-        <TextView
-            android:id="@+id/quantity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1500 calories/100g"
-            android:gravity="center">
-        </TextView>
-        <EditText
-            android:layout_gravity="center"
-            android:id="@+id/editTextDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="date de péremption"
-            android:gravity="center"
-            android:ems="10"
-            android:inputType="none"
-            android:focusable="false" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
             android:orientation="vertical">
 
+            <ImageView
+                android:elevation="5dp"
+                android:id="@+id/imageAliment"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/food_logo" />
 
-            <com.example.myapplication.components.ProgressBarComponant
-                android:id="@+id/prots"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:background="@drawable/round_border"
+                android:radius="100dp"
+                android:elevation="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:text_progress_bar="@string/proteines"
-                app:progress_bar_color="@color/proteines_color"/>
+                android:layout_marginTop="-10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:id="@+id/product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/poid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1500 calories/100g"
+                    android:gravity="center">
+                </TextView>
+                <EditText
+                    android:layout_gravity="center"
+                    android:id="@+id/editTextDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="date de péremption"
+                    android:gravity="center"
+                    android:ems="10"
+                    android:inputType="none"
+                    android:focusable="false" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-            <com.example.myapplication.components.ProgressBarComponant
-                android:id="@+id/fat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:text_progress_bar="@string/graisses"
-                app:progress_bar_color="@color/fat_color"/>
 
-            <com.example.myapplication.components.ProgressBarComponant
-                android:id="@+id/sugar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:text_progress_bar="@string/glucides"
-                app:progress_bar_color="@color/glucide_color"/>
+                    <com.example.myapplication.components.ProgressBarComponant
+                        android:id="@+id/prots"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:text_progress_bar="@string/proteines"
+                        app:progress_bar_color="@color/proteines_color"/>
 
-            <com.example.myapplication.components.ProgressBarComponant
-                android:id="@+id/fiber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:text_progress_bar="@string/Fibres"
-                app:progress_bar_color="@color/fiber_color"/>
+                    <com.example.myapplication.components.ProgressBarComponant
+                        android:id="@+id/fat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:text_progress_bar="@string/graisses"
+                        app:progress_bar_color="@color/fat_color"/>
+
+                    <com.example.myapplication.components.ProgressBarComponant
+                        android:id="@+id/sugar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:text_progress_bar="@string/glucides"
+                        app:progress_bar_color="@color/glucide_color"/>
+
+                    <com.example.myapplication.components.ProgressBarComponant
+                        android:id="@+id/fiber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:text_progress_bar="@string/Fibres"
+                        app:progress_bar_color="@color/fiber_color"/>
 
 
 
 
 
 
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                        android:id="@+id/buttonMoins"
+                        app:cornerRadius="28dp"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="-"
+                        android:textSize="20sp"/>
+                    <EditText
+                        android:id="@+id/quantite"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/quantit"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"/>
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                        android:id="@+id/buttonPlus"
+                        app:cornerRadius="28dp"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="+"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+                <Button
+                    android:id="@+id/validerAliment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="valider"
+                    android:layout_gravity="center"></Button>
+
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="10dp">
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                android:id="@+id/buttonMoins"
-                app:cornerRadius="28dp"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:text="-"
-                android:textSize="20sp"/>
-            <EditText
-                android:id="@+id/quantite"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/quantit"
-                android:gravity="center"
-                android:inputType="number"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"/>
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                android:id="@+id/buttonPlus"
-                app:cornerRadius="28dp"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:text="+"
-                android:textSize="20sp"/>
+    </ScrollView>
+        <!-- TODO: Update blank fragment layout -->
 
-        </LinearLayout>
-        <Button
-            android:id="@+id/validerAliment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="valider"
-            android:layout_gravity="center"></Button>
+
+</RelativeLayout>
 
 
 
-
-    </LinearLayout>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
