@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.myapplication.components.ProgressBarComponant;
 import com.example.myapplication.fragments.Fridge_fragment;
@@ -60,16 +62,20 @@ public class Aliment extends AppCompatActivity {
     private void loadData() {
         ImageView alimentImage = findViewById(R.id.imageAliment);
         try {
-            Picasso.get().
-                    load(jsonObject.getJSONObject("product").getString("image_url"))
-                    .fit()
-                    .centerInside()
-                    .into(alimentImage);
+            if(jsonObject.getJSONObject("product").has("image_url"))
+                Picasso.get().
+                        load(jsonObject.getJSONObject("product").getString("image_url"))
+                        .fit()
+                        .centerInside()
+                        .into(alimentImage);
             quantity = findViewById(R.id.quantity);
-            String calories = jsonObject.getJSONObject("product").getJSONObject("nutriments").getString("energy-kcal_100g") + " calories/100g";
+
+            String calories = jsonObject.getJSONObject("product").getJSONObject("nutriments").has("energy-kcal_100g") ?
+                    jsonObject.getJSONObject("product").getJSONObject("nutriments").getString("energy-kcal_100g") + " calories/100g":
+                    "calories inconues";
             quantity.setText(calories);
             ((TextView) findViewById(R.id.product_name))
-                    .setText(this.jsonObject.getJSONObject("product").getString("product_name_fr"));
+                    .setText(this.jsonObject.getJSONObject("product").has("product_name_fr") ? this.jsonObject.getJSONObject("product").getString("product_name_fr") : "super produit");
             String quantity = this.jsonObject.getJSONObject("product").has("quantity") ?
                     this.jsonObject.getJSONObject("product").getString("quantity") : "unknow";
             ((TextView) findViewById(R.id.poid))
@@ -243,13 +249,14 @@ public class Aliment extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        Intent intent = new Intent(getApplicationContext(),QrCodeScanner.class);
-        startActivity(intent);
-        finish();
+        goBack();
     }
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
+    }
+    private void goBack(){
+        finish();
     }
 }

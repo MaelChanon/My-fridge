@@ -157,7 +157,7 @@ public class Fridge_fragment extends Fragment {
                                             intent.putExtra("json",jsonObject.toString());
                                             intent.putExtra("aliment",aliment_db);
                                             startActivity(intent);
-                                            getActivity().finish();
+
                                         }
                                     });
                                     alimentComponants.add(aliment);
@@ -198,7 +198,6 @@ public class Fridge_fragment extends Fragment {
         Activity activity = this.getActivity();
         Intent intent = new Intent(activity.getApplicationContext(), Login.class);
         startActivity(intent);
-        activity.finish();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

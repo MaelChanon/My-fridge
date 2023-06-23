@@ -6,7 +6,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,15 +45,12 @@ public class QrCodeScanner extends AppCompatActivity implements CallBackActivity
         replaceFragment(new Home_fragment());
         binding.navigationView.setOnItemSelectedListener(item -> {
             if(item.getItemId() == R.id.my_food){
-                Log.d("TAG", "my food ");
                 replaceFragment(new Food_fragment());
             }
             else if (item.getItemId() == R.id.scanner) {
-                Log.d("TAG", "scanner ");
                 replaceFragment(new Home_fragment());
             }
             else if (item.getItemId() == R.id.my_fridge) {
-                Log.d("TAG", "my fridge ");
                 replaceFragment(new Fridge_fragment());
 
             }
@@ -93,10 +93,19 @@ public class QrCodeScanner extends AppCompatActivity implements CallBackActivity
 
     @Override
     public void CallBack(String object) {
+        if(!object.contains("\"status\":1")){
+            Handler mainHandler = new Handler(Looper.getMainLooper());
+            mainHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(),"Le code est invalide",Toast.LENGTH_LONG).show();
+                }
+            });
+            return;
+        }
         Intent intent = new Intent(getApplicationContext(), Aliment.class);
         intent.putExtra("json",object);
         startActivity(intent);
-        finish();
     }
 
 

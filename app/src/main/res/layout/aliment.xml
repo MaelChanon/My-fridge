@@ -15,7 +15,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintHeight_percent="0.35"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/test" />
+        android:src="@drawable/food_logo" />
     />
     <LinearLayout
         android:background="@drawable/round_border"
