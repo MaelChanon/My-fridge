@@ -46,7 +46,10 @@ public class Aliment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.aliment);
+        int view = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ?
+                R.layout.aliment_land:
+                R.layout.aliment;
+        setContentView(view);
         try {
             this.jsonObject = new JSONObject(getIntent().getStringExtra("json"));
             this.current_Aliment = (Aliment_DB) getIntent().getSerializableExtra("aliment");
@@ -205,9 +208,7 @@ public class Aliment extends AppCompatActivity {
                                 if(!dataupdated){
                                     myRef.push().setValue(aliment_db);
                                 }
-                                Intent intent = new Intent(getApplicationContext(),QrCodeScanner.class);
-                                startActivity(intent);
-                                finish();
+                                goBack();
                             }
 
                             @Override
@@ -224,7 +225,6 @@ public class Aliment extends AppCompatActivity {
 
                 } else {
                     // No user is signed in
-                    Log.d("TTTT", "No user is signed in.");
                 }
             }
         });

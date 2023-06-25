@@ -8,11 +8,13 @@
     tools:context="com.example.myapplication.fragments.Fridge_fragment">
 
         <LinearLayout
+            android:id="@+id/fridgeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
                 <ScrollView
+                    android:id="@+id/fridgeList"
                     android:layout_width="match_parent"
-                    android:layout_height="650dp"
+                    android:layout_height="match_parent"
                     android:fillViewport="true"
                     android:scrollbars="vertical"
 

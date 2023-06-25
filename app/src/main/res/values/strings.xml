@@ -46,24 +46,24 @@
 
 
     <string name="login_button">Se connecter</string>
-    <string name="votre_mot_de_passe">votre mot de passe</string>
-    <string name="votre_email">votre email</string>
-    <string name="se_connecter">se connecter</string>
-    <string name="s_enregister">s\'enregister</string>
-    <string name="s_inscrire">s\'inscrire</string>
-    <string name="login">login</string>
-    <string name="confirmer_le_mot_de_passe">confirmer le mot de passe</string>
-    <string name="votre_pr_nom">votre prénom</string>
+    <string name="votre_mot_de_passe">Votre mot de passe</string>
+    <string name="votre_email">Votre email</string>
+    <string name="se_connecter">Déjà un compte ? Se connecter</string>
+    <string name="s_enregister">S\'enregister</string>
+    <string name="s_inscrire">Pas de compte? s\'inscrire</string>
+    <string name="login">Login</string>
+    <string name="confirmer_le_mot_de_passe">Confirmer le mot de passe</string>
+    <string name="votre_pr_nom">Votre prénom</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="rentrez_votre_code">rentrez votre code</string>
-    <string name="rechercher">rechercher</string>
+    <string name="rentrez_votre_code">Rentrez votre code</string>
+    <string name="rechercher">Rechercher</string>
     <string name="scanner_un_code_barre">Scanner un code barre</string>
     <string name="proteines">Proteines</string>
     <string name="graisses">Graisses </string>
     <string name="glucides">Glucides </string>
-    <string name="logout">logout\n</string>
-    <string name="quantit">quantité</string>
+    <string name="logout">Logout\n</string>
+    <string name="quantit">Quantité</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

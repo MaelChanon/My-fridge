@@ -10,7 +10,6 @@ public class HTTPRequest {
 
 
     public void makeGetRequest(String requestUrl, Callback callback) {
-        Log.d(TAG, "makeGetRequest: "+requestUrl);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(requestUrl)

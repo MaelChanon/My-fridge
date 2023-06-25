@@ -49,6 +49,7 @@
         <activity
             android:name=".QrCodeScanner"
             android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.Material3.Light" />
     </application>
 

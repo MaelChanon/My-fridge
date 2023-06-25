@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,7 +43,18 @@ public class QrCodeScanner extends AppCompatActivity implements CallBackActivity
         getSupportActionBar().hide();
         binding = BottomNavBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new Home_fragment());
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        boolean isBackStackEmpty = fragmentManager.popBackStackImmediate();
+        Fragment previousFragment = null;
+        if (!isBackStackEmpty) {
+            // A fragment was popped from the back stack
+            previousFragment = fragmentManager.findFragmentById(R.id.frameLayouts);
+        }
+        if(previousFragment==null)
+            replaceFragment(new Home_fragment());
+        else{
+            replaceFragment(previousFragment);
+        }
         binding.navigationView.setOnItemSelectedListener(item -> {
             if(item.getItemId() == R.id.my_food){
                 replaceFragment(new Food_fragment());
@@ -88,6 +100,7 @@ public class QrCodeScanner extends AppCompatActivity implements CallBackActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayouts,fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -107,6 +120,21 @@ public class QrCodeScanner extends AppCompatActivity implements CallBackActivity
         intent.putExtra("json",object);
         startActivity(intent);
     }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frameLayouts);
 
+        if (currentFragment != null) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frameLayouts, currentFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+    }
 }

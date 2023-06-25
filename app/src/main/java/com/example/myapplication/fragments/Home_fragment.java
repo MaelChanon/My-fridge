@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -40,9 +41,11 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
     private static final String ARG_PARAM2 = "param2";
     private Button scanButton;
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ViewGroup parentLayout;
 
     public Home_fragment() {
         // Required empty public constructor
@@ -73,8 +76,6 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @SuppressLint("MissingInflatedId")
@@ -85,6 +86,7 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
         View view = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ?
                 inflater.inflate(R.layout.fragment_home_land, container, false) :
                 inflater.inflate(R.layout.fragment_home, container, false);
+        parentLayout = container;
         scanButton = view.findViewById(R.id.scanner_btn);
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +109,49 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
 
 
     }
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (savedInstanceState != null) {
+            // Restore your fragment state data from the bundle
+            String value = savedInstanceState.getString("key");
+        }
+    }
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        View view = getView();
+        if (view != null) {
+            if(parentLayout == null)
+                return;
+            int index = parentLayout.indexOfChild(view);
+            parentLayout.removeView(view);
+            view = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ?
+                    getLayoutInflater().inflate(R.layout.fragment_home_land, parentLayout, false) :
+                    getLayoutInflater().inflate(R.layout.fragment_home, parentLayout, false);
+
+            parentLayout.addView(view, index);
+            scanButton = view.findViewById(R.id.scanner_btn);
+            scanButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    IntentIntegrator intentIntegrator = new IntentIntegrator(getActivity());
+                    intentIntegrator.setBeepEnabled(false);
+                    intentIntegrator.setPrompt("Scannez votre code bar");
+                    intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                    intentIntegrator.setCaptureActivity(Empty_activity.class);
+                    intentIntegrator.initiateScan();
+                }
+            });
+            View finalView = view;
+            ((Button)view.findViewById(R.id.search_button)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new foodApiCall(Home_fragment.this).doInBackground(((EditText) finalView.findViewById(R.id.editTextNumberDecimal)).getText().toString());
+                }
+            });
+        }
+    }
+
 
     @Override
     public void CallBack(String object) {
@@ -125,4 +170,5 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
             startActivity(intent);
             }
     }
+
 }
