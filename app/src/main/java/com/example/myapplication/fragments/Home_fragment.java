@@ -1,27 +1,23 @@
 package com.example.myapplication.fragments;
 
-import static android.content.ContentValues.TAG;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.myapplication.Aliment;
-import com.example.myapplication.QrCodeScanner;
 import com.example.myapplication.R;
 import com.example.myapplication.utils.CallBackActivity;
 import com.example.myapplication.utils.Empty_activity;
@@ -46,6 +42,9 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
     private String mParam1;
     private String mParam2;
     private ViewGroup parentLayout;
+
+    private ProgressBar progressBar;
+
 
     public Home_fragment() {
         // Required empty public constructor
@@ -88,6 +87,8 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
                 inflater.inflate(R.layout.fragment_home, container, false);
         parentLayout = container;
         scanButton = view.findViewById(R.id.scanner_btn);
+        progressBar = view.findViewById(R.id.homeProgress);
+        progressBar.setVisibility(View.INVISIBLE);
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,12 +98,14 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
                 intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
                 intentIntegrator.setCaptureActivity(Empty_activity.class);
                 intentIntegrator.initiateScan();
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
         ((Button)view.findViewById(R.id.search_button)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new foodApiCall(Home_fragment.this).doInBackground(((EditText) view.findViewById(R.id.editTextNumberDecimal)).getText().toString());
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
         return view;
@@ -160,11 +163,13 @@ public class Home_fragment extends Fragment implements CallBackActivity<String> 
             mainHandler.post(new Runnable() {
                 @Override
                 public void run() {
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(getActivity().getApplicationContext(),"Le code est invalide",Toast.LENGTH_LONG).show();
                 }
             });
         }
         else{
+            progressBar.setVisibility(View.VISIBLE);
             Intent intent = new Intent(getActivity().getApplicationContext(), Aliment.class);
             intent.putExtra("json",object);
             startActivity(intent);

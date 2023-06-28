@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -75,6 +77,9 @@ public class QrCodeScanner extends AppCompatActivity implements CallBackActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frameLayouts);
+        ProgressBar progressBar = findViewById(R.id.homeProgress);
+        if(progressBar != null)
+            progressBar.setVisibility(View.GONE);
         if (fragment instanceof Home_fragment) {
 
             IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);

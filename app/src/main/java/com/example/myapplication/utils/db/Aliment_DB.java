@@ -32,7 +32,7 @@ public class Aliment_DB implements Comparable<Aliment_DB>, Serializable {
     }
     public void setDate_peremption(String date_String) {
         int[] date = Arrays.stream(date_String.split("/")).mapToInt(Integer::parseInt).toArray();
-        this.date_peremption = new GregorianCalendar(date[2],date[1],date[0]);
+        this.date_peremption = new GregorianCalendar(date[2],date[1]-1,date[0]);
     }
 
     public String getDate_peremption() {
